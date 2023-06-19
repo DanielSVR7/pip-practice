@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <form action="check.php">
+      <div class="container">
+        <h1>Форма регистрации</h1>
+        <p>Пожалуйста, заполните эту форму, чтобы создать учетную запись.</p>
+        <hr>
+
+        <div class="h-container">
+          <div class="param-container">
+            <label for="surname" class="required">Фамилия</label>
+            <input type="text" placeholder="Введите вашу Фамилию" name="surname" pattern="^[а-яА-Я]+$" required>
+            </div>
+
+          <div class="param-container">
+            <label for="name" class="required">Имя</label>
+            <input type="text" placeholder="Введите ваше Имя" name="name" pattern="^[а-яА-Я]+$" required>
+          </div>
+
+          <div class="param-container">
+            <label for="lastname">Отчество</label>
+             <input type="text" placeholder="Введите ваше Отчество" pattern="^[а-яА-Я]+$" name="lastname">
+          </div>
+        </div>
+
+        <div class="h-container">
+          <div class="param-container">  
+            <label for="genderRadio" class="required">Пол</label><br/>
+             <div>  
+              <input type="radio" name="genderRadio" id="man" required>
+              <label for="man" class="select-label">Мужской</label>
+            </div>
+            <div>
+              <input type="radio" name="genderRadio" id="woman" required>
+              <label for="woman" class="select-label">Женский</label>
+            </div>
+          </div>
+
+          <div class="param-container">
+            <label for="eyeColor">Цвет глаз</label><br/>
+            <input type="color" name="eyeColor">
+          </div>
+
+          <div class="param-container">
+            <label for="birthday" class="required">Дата рождения</label></br>
+            <input type="date" name="lastname" required>
+          </div>    
+        </div>
+
+        <div class="h-container">
+          <div class="param-container">
+            <label for="ageInput">Возраст</label>
+            <input type="range" id="ageInput" name="ageInput" min="18" max="100" step="1">
+            <output id="ageValue" class="label"></output>
+          </div>
+        </div>
+
+        <hr/>
+
+        <div class="param-container">
+          <label for="birthplace" class="required">Место рождения</label>
+          <select name="birthplace" aria-placeholder="Выберите место рождения" required>
+            <option disabled>Выберите город</option>
+            <option value="Saratov">Саратов</option>
+            <option value="Engels">Энгельс</option>
+            <option value="Balakovo">Балаково</option>
+
+          </select>
+        </div>
+
+
+        <div class="h-container">
+          <div class="param-container" style="width: 25%">
+            <label for="index" class="required">Индекс</label>
+            <input type="text" placeholder="Введите индекс" name="index" pattern="[0-9]{6}" required>
+          </div>
+          <div class="param-container">
+            <label for="homeAddress" class="required">Домашний адрес</label>
+            <input type="text" placeholder="Введите ваш домашний адрес" name="homeAddress" required>
+          </div>
+        </div>
+        <div class="h-container">
+          <div class="param-container">
+            <label for="phoneNumber" class="required">Номер телефона</label>
+            <input type="tel" placeholder="Введите номер телефона" name="phoneNumber" pattern="+7-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>  
+          </div>
+          <div class="param-container">
+            <label for="email" class="required">E-mail</label>
+            <input type="text" placeholder="Введите E-mail" name="email" required>
+          </div>
+        </div>
+        <div class="h-container">
+          <div class="param-container">
+            <label for="passport" class="required">Первая страница паспорта</label>
+            <input type="file" name="passport" accept="image/jpeg" required>
+          </div>
+          <div class="param-container">
+            <label for="regDate" class="required">Дата регистрации</label><br>
+            <input type="date" required>
+          </div>
+        </div>
+        
+
+        <hr/>
+        <div class="param-container">
+          <label for="findOutCheckBox">Откуда вы узнали о нашем магазине?</label>
+          <div>
+            <input type="checkbox" name="findOutCheckBox" id="frCB">
+            <label for="frCB" class="select-label">От друзей</label>
+  
+            <input type="checkbox" name="findOutCheckBox" id="tvCB">
+            <label for="tvCB" class="select-label">Из рекламы по ТВ</label>
+  
+            <input type="checkbox" name="findOutCheckBox" id="fbCB">
+            <label for="fbCB" class="select-label">Из Facebook</label>
+  
+            <input type="checkbox" name="findOutCheckBox" id="igCB">
+            <label for="igCB" class="select-label">Из Instagram</label>
+          </div>
+        </div>
+        <div class="param-container">
+          <label class="select-label required">  
+            <input type="checkbox" name="personalDataCheckBox" required> 
+            Я согласен на обработку моих персональных данных
+          </label>
+          <br>
+          <label class="select-label">
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> 
+            Запомнить меня
+          </label>
+        </div>
+
+        <p>Создавая учетную запись, вы соглашаетесь c нашими <a href="#" style="color:dodgerblue">Условиями и конфиденциальностью</a>.</p>
+    
+        <div class="clearfix">
+          <button type="reset" class="cancelbtn">Очистить</button>
+          <button type="submit" class="signupbtn">Регистрация</button>
+        </div>
+      </div>
+    </form> 
+    <script>
+      const ageValue = document.querySelector("#ageValue")
+      const ageInput = document.querySelector("#ageInput")
+      ageValue.textContent = ageInput.value
+      ageInput.addEventListener("input", (event) => {
+        ageValue.textContent = event.target.value
+      })
+    </script>
+  </body>
+</html>
